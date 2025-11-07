@@ -54,28 +54,36 @@ table {
 
 header
 {
-    display: flexbox;
-    background-color: rgb(23, 156, 94);
-    position: relative;
+    display: flex;
+    background-color: rgb(80, 76, 82);
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(0.5% + 5px);
+}
+.header-right, .header-left
+{
+    display: flex;
 }
 
 .logo
 {
-    width: 15%;
-    height: auto;
+    width:20%;
 }
 
 body
 {
-    background-color: rgb(176, 198, 128);
+    background-color: rgb(51, 54, 43);
 }
 
 .title
 {
+    display: flex;
     font-family: 'Courier New', Courier, monospace;
-    text-align: center;
+    justify-content: center;
     margin: 10%;
     font-size: xx-large;
+    text-align: center;
+    flex-wrap: wrap;
 }
 
 .cpara
@@ -85,8 +93,48 @@ body
 
 .btn1
 {
-    display: flexbox;
-    justify-self:center;
-    justify-content: space-between;
-    padding: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5%;
+    gap: 4%;
+}
+
+.actionbtn:hover
+{
+    background-color: #4b0962;
+    color: whitesmoke;
+    cursor:pointer;
+}
+.actionbtn
+{
+    background-color: #bcacb1;
+}
+.btn1 .actionbtn
+{
+    padding: 0.5% 2%;
+}
+
+h1, p
+{
+    color: white;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column; /* stack logo and button */
+        align-items: center;
+        text-align: center;
+    }
+
+    .header-left, .header-right {
+        justify-content: center;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .logo {
+        width: 80px;
+    }
 }
