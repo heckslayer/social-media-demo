@@ -1,3 +1,5 @@
+/* Elements presets reset */
+
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -48,6 +50,8 @@ table {
 	border-spacing: 0;
 }
 
+/* Customization starts here */
+
 header
 {
     display: flexbox;
@@ -84,4 +88,5 @@ body
     display: flexbox;
     justify-self:center;
     justify-content: space-between;
+    padding: 3%;
 }
