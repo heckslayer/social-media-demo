@@ -1,140 +1,149 @@
-/* Elements presets reset */
-
-
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
+/* Reset (Meyer’s Reset v2.0) */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+  margin: 0; padding: 0; border: 0; font: inherit; vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, hgroup, menu, nav, section {
-	display: block;
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; background: #33362b; color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* Layout and Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #504c52;
 }
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+.header-left, .header-right { display: flex; align-items: center; }
+.logo { width: 20%; min-width: 60px; }
+
+/* Typography & Buttons */
+.title {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 10%;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
+  flex-wrap: wrap;
 }
 
-/* Customization starts here */
-
-header
-{
-    display: flex;
-    background-color: rgb(80, 76, 82);
-    justify-content: space-between;
-    align-items: center;
-    padding: calc(0.5% + 5px);
-}
-.header-right, .header-left
-{
-    display: flex;
+.cpara {
+  text-align: center;
+  margin: 0 2rem;
 }
 
-.logo
-{
-    width:20%;
+.btn1 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2rem;
+  gap: 1rem;
 }
 
-body
-{
-    background-color: rgb(51, 54, 43);
+.actionbtn {
+  background-color: #bcacb1;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
-.title
-{
-    display: flex;
-    font-family: 'Courier New', Courier, monospace;
-    justify-content: center;
-    margin: 10%;
+.actionbtn:hover {
+  background-color: #4b0962;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+/* Login Popup */
+.login-popup {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.login-popup h2{
     font-size: xx-large;
-    text-align: center;
-    flex-wrap: wrap;
+    font-weight: bolder;
+    margin: 2%;
+}
+/* Inner Box */
+.login-box {
+  position: relative;
+  background: #222;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  animation: popupFade 0.25s ease;
 }
 
-.cpara
-{
-    text-align: center;
+@keyframes popupFade {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.btn1
-{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 5%;
-    gap: 4%;
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-.actionbtn:hover
-{
-    background-color: #4b0962;
-    color: whitesmoke;
-    cursor:pointer;
-}
-.actionbtn
-{
-    background-color: #bcacb1;
-}
-.btn1 .actionbtn
-{
-    padding: 0.5% 2%;
+.login-form label {
+  font-weight: bold;
+  text-align: left;
 }
 
-h1, p
-{
-    color: white;
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  background: #444;
+  color: #fff;
 }
 
-/* RESPONSIVE DESIGN */
+.login-form button {
+  margin-top: 1rem;
+}
+
+/* Close button (top-right corner) */
+.close-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.8rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Responsive */
 @media (max-width: 600px) {
-    header {
-        flex-direction: column; /* stack logo and button */
-        align-items: center;
-        text-align: center;
-    }
-
-    .header-left, .header-right {
-        justify-content: center;
-        width: 100%;
-        margin: 0.5rem 0;
-    }
-
-    .logo {
-        width: 80px;
-    }
+  header { flex-direction: column; text-align: center; }
+  .header-left, .header-right { justify-content: center; width: 100%; margin: 0.5rem 0; }
+  .logo { width: 80px; }
 }

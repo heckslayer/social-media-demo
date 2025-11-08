@@ -1,29 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media</title>
-    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media</title>
+  <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
 </head>
 
 
 
 <body>
-    <header>
-        <div class="header-left">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="logo">
-        </div>
-        <div class="header-right">
-            <button class="actionbtn">Log In</button>
-        </div>
-    </header>
-
-    <h1 class="title">The Social Media Demo</h1>
-    <p class="cpara">Welcome to the Social Media experience!<br>Please log in or sign up to continue. We hope to see you on the other side.</p>
-    <div class="btn1">
-        <button class="actionbtn">Log In</button>
-        <button class="actionbtn">Sign Up</button>
+  <header>
+    <div class="header-left">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" class="logo">
     </div>
+    <div class="header-right">
+      <button class="actionbtn login-btn">Log In</button>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="title">The Social Media Demo</h1>
+    <p class="cpara">
+      Welcome to the Social Media experience!<br>
+      Please log in or sign up to continue. We hope to see you on the other side.
+    </p>
+
+    <div class="btn1">
+      <button class="actionbtn login-btn">Log In</button>
+      <button class="actionbtn">Sign Up</button>
+    </div>
+  </main>
+
+  <!-- Login Popup -->
+  <div id="login-popup" class="login-popup">
+
+    
+    <div class="login-box">
+      <h2>Log In</h2>
+      <p>Welcome back!</p>
+
+      <form action="/login" method="post" class="login-form">
+        <label for="userinp">Username:</label>
+        <input type="text" id="userinp" name="username" placeholder="ex: JohnDoe">
+
+        <label for="passinp">Password:</label>
+        <input type="password" id="passinp" name="password" placeholder="password" required>
+
+        <button type="submit" class="actionbtn">Log In</button>
+      </form>
+
+      <button id="close-login" class="close-btn">X</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
